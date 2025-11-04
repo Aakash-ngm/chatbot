@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayStation Sales Prediction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎮 PlayStation Sales Intelligence</h1>
+            <p class="subtitle">AI-Powered Sales Analysis & Prediction</p>
+        </header>
+
+        <!-- Stats Dashboard -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Games</h3>
+                <p class="stat-value" id="totalGames">-</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Sales</h3>
+                <p class="stat-value" id="totalSales">-</p>
+            </div>
+            <div class="stat-card">
+                <h3>Avg Rating</h3>
+                <p class="stat-value" id="avgRating">-</p>
+            </div>
+            <div class="stat-card">
+                <h3>Avg Metacritic</h3>
+                <p class="stat-value" id="avgMetacritic">-</p>
+            </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            <!-- Left Column - Charts -->
+            <div class="left-column">
+                <!-- Sales by Console -->
+                <div class="chart-container">
+                    <h2>Sales by Console</h2>
+                    <canvas id="consoleChart"></canvas>
+                </div>
+
+                <!-- Regional Sales -->
+                <div class="chart-container">
+                    <h2>Regional Sales Distribution</h2>
+                    <canvas id="regionalChart"></canvas>
+                </div>
+
+                <!-- Top Games -->
+                <div class="chart-container">
+                    <h2>Top 10 Games</h2>
+                    <canvas id="topGamesChart"></canvas>
+                </div>
+
+                <!-- Future Prediction -->
+                <div class="chart-container">
+                    <h2>Future Sales Prediction</h2>
+                    <canvas id="futureChart"></canvas>
+                </div>
+
+     
+            </div>
+
+            <!-- Right Column - Chatbot -->
+            <div class="right-column">
+                <!-- Salesman Bot -->
+                <div class="chatbot-container">
+                    <div class="salesman-avatar">
+                        <div class="avatar-face">
+                            <div class="eyes">
+                                <div class="eye"></div>
+                                <div class="eye"></div>
+                            </div>
+                            <div class="mouth" id="botMouth">
+                                <div class="mouth-top"></div>
+                                <div class="mouth-bottom"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>🤖 PlayStation Sales Assistant</h2>
+                    <p class="chat-subtitle">Ask me about sales trends, predictions, or game data!</p>
+
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            <strong>Bot:</strong> Hello! I'm your PlayStation sales analyst. Ask me anything about sales data, trends, or predictions!
+                        </div>
+                    </div>
+
+                    <div class="chat-input-container">
+                        <input 
+                            type="text" 
+                            id="chatInput" 
+                            placeholder="Type your question here..."
+                            onkeypress="handleKeyPress(event)"
+                        >
+                        <button onclick="sendMessage()">Send</button>
+                        <button onclick="toggleVoice()" id="voiceBtn">🔊 Voice On</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
